@@ -1,0 +1,35 @@
+<template name="accountBalances">
+	<h3>Balances</h3>
+	<table class="table table-striped table-bordered table-hover">
+		<tbody>
+		{{#each accounts}}
+		{{> accountSummary }}
+		{{/each}}
+		<tr class="total">
+			<td>TOTAL</td>
+			<td>{{ total }}</td>
+		</tr>
+		</tbody>
+
+	</table>
+</template>
+
+<template name="accountSummary">
+	<tr class="accountrow">
+		<td><a href="{{ pathFor 'accountDetail' uid=uid }}">{{ name }}</a></td>
+		<td class="{{ additionalClasses }}">{{ formatBalance }}</td>
+	</tr>
+</template>
+
+<template name="accountDetail">
+	<h3>{{name}}</h3>
+	<table class="table table-hover">
+		<thead></thead>
+		<tbody>
+		<tr>
+			<td>Ate fryed fish and chips</td>
+			<td>Sagra <div class="label">Food - Cibarsi</div></td>
+		</tr>
+		</tbody>
+	</table>
+</template>

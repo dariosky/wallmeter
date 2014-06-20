@@ -1,0 +1,10 @@
+{
+  "packages": {
+    "less-bootstrap-3": {},
+    "font-awesome-4-less": {},
+    "iron-router": {},
+    "spin": {},
+    "accounting": {},
+    "accounts-ui-bootstrap-3": {}
+  }
+}

@@ -22,13 +22,17 @@
 </template>
 
 <template name="accountDetail">
-	<h3>{{name}}</h3>
+	<a href="{{ pathFor "accountBalances" }}">
+	<h3><span class="glyphicon glyphicon-chevron-left"></span>{{name}}</h3>
+	</a>
 	<table class="table table-hover">
 		<thead></thead>
 		<tbody>
 		<tr>
 			<td>Ate fryed fish and chips</td>
-			<td>Sagra <div class="label">Food - Cibarsi</div></td>
+			<td>Sagra
+				<div class="label">Food - Cibarsi</div>
+			</td>
 		</tr>
 		</tbody>
 	</table>

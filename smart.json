@@ -5,6 +5,7 @@
     "iron-router": {},
     "spin": {},
     "accounting": {},
-    "accounts-ui-bootstrap-3": {}
+    "accounts-ui-bootstrap-3": {},
+    "collection2": {}
   }
 }

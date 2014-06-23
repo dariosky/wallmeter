@@ -10,21 +10,27 @@
 			<td>{{ total }}</td>
 		</tr>
 		</tbody>
-
 	</table>
+
+	<a href="{{ pathFor 'newAccount' }}">
+		<span class='glyphicon glyphicon-plus'></span>New account
+	</a>
 </template>
 
 <template name="accountSummary">
-	<tr class="accountrow">
-		<td><a href="{{ pathFor 'accountDetail' uid=uid }}">{{ name }}</a></td>
+	<tr class="accountrow" data-uid="{{ uid }}">
+		<td>{{ name }}</td>
 		<td class="{{ additionalClasses }}">{{ formatBalance }}</td>
 	</tr>
 </template>
 
 <template name="accountDetail">
-	<a href="{{ pathFor "accountBalances" }}">
-	<h3><span class="glyphicon glyphicon-chevron-left"></span>{{name}}</h3>
-	</a>
+	<h3>
+		<a href="{{ pathFor 'accountBalances' }}">
+			<span class="glyphicon glyphicon-chevron-left"></span>{{name}}
+		</a></h3>
+	<a class="pull-right" href="{{ pathFor 'editAccount' uid=uid }}"><span class="glyphicon glyphicon-edit">modify account</span></a>
+
 	<table class="table table-hover">
 		<thead></thead>
 		<tbody>
@@ -37,3 +43,4 @@
 		</tbody>
 	</table>
 </template>
+

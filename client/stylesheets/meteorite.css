@@ -4,6 +4,9 @@
 .redbalance{
 	color:red
 }
+.accountrow {
+	cursor: pointer;
+}
 
 .grid-block, .main, .post, .comments li, .comment-form {
     background: #fff;

@@ -7,12 +7,13 @@ Schemas.CommonTrackedObject = new SimpleSchema({
 			if (this.isInsert) {
 				return new Date;
 			} else if (this.isUpsert) {
+				console.log("upsert");
 				return {$setOnInsert: new Date};
 			} else {
+				// update
 				this.unset();
 			}
-		},
-		denyUpdate: true
+		}
 	},
 	updatedAt: {
 		type: Date,
@@ -23,7 +24,6 @@ Schemas.CommonTrackedObject = new SimpleSchema({
 		},
 		denyInsert: true,
 		optional: true
-
 	}
 });
 
@@ -85,5 +85,5 @@ Schemas.Alert = new SimpleSchema([Schemas.OwnedObject, {
 }]);
 
 Accounts = new Meteor.Collection('accounts', {idGeneration: 'MONGO'});
-Accounts.attachSchema(Schemas.Account);
+//Accounts.attachSchema(Schemas.Account);
 

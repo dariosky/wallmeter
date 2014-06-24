@@ -47,6 +47,10 @@ UI.registerHelper('selectedOption', function (value, selectedValue) {
 	return value == selectedValue ? {selected: "selected"} : "";
 });
 
+UI.registerHelper('isNew', function () {
+	return !this._id
+});
+
 Template.accountEdit.events({
 	'submit form': function (e) {
 		e.preventDefault();
@@ -61,16 +65,14 @@ Template.accountEdit.events({
 			viewers: [user._id]
 		};
 		if (this._id) {
-			console.log("updating", this._id);
-			console.log(account);
-			account._id = Accounts.update({_id: this._id}, {$set: account}, {upsert: true});
+			//console.log("updating", this._id);
+			Accounts.update({_id: this._id}, {$set: account}, {upsert: true});
+			account._id = this._id;
 		}
 		else {
-			console.log("New account");
 			account._id = Accounts.insert(account);
 		}
-		console.log(this._id);
-		console.log(account);
-		//Router.go('accountDetail', account);
+		console.log(account._id);
+		Router.go('accountDetail', {uid: account._id._str || account._id});
 	}
 });

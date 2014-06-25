@@ -1,26 +1,53 @@
 <template name="accountEdit">
 	{{#if isNew }}
-		<h1>Let's do a new account</h1>
+	<h1>Let's do a new account</h1>
 
-		<p>An account is a place where you put your money, like a bank account or simply a wallet.</p>
+	<p>An account is a place where you put your money, like a bank account or simply a wallet.</p>
 
-		<p>
-			An account could also be a place for debts, like a credit card (who accumulate debts and periodically
-			receive transfers from your bank account) or lends (that are money that you give away, but you hope
-			they'll be back sooner or later).
-		</p>
-		{{ else }}
-		<h1><a href="{{ pathFor 'accountDetail' }}"></a>{{ name }}</h1>
+	<p>
+		An account could also be a place for debts, like a credit card (who accumulate debts and periodically
+		receive transfers from your bank account) or lends (that are money that you give away, but you hope
+		they'll be back sooner or later).
+	</p>
+	{{ else }}
+	<h1><a href="{{ pathFor 'accountDetail' }}"></a>{{ name }}</h1>
 	{{/if}}
+
+	<div id="confirmYesOrNo" class="modal fade" tabindex="-1"
+		 role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="modalLabel">Delete account</h4>
+				</div>
+				<div class="modal-body">
+					If you delete the account all its statements will be deleted too and you won't be able to recover
+					them. Are you sure?
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-danger" id='delete-confirm' data-dismiss="modal">
+						Yes, delete
+					</button>
+					<button type="button" class="btn btn-primary" data-dismiss="modal">No, I changed my mind</button>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<form role="form">
 		<div class="form-group">
 			<label for="type">Account type</label>
 			<select name='type' id='type' class="form-control">
-				<option value="bank" {{ selectedOption 'bank' type }}>Bank account</option>
-				<option value="cash" {{ selectedOption 'cash' type }}>Cash</option>
-				<option value="rent" {{ selectedOption 'rent' type }}>Rent</option>
-				<option value="card" {{ selectedOption 'card' type }}>Card</option>
+				<option value="bank"
+				{{ selectedOption 'bank' type }}>Bank account</option>
+				<option value="cash"
+				{{ selectedOption 'cash' type }}>Cash</option>
+				<!--<option value="rent" {{ selectedOption 'rent' type }}>Rent</option>-->
+				<option value="card"
+				{{ selectedOption 'card' type }}>
+				Credit card
+				</option>
 			</select>
 		</div>
 		<div class="form-group">
@@ -35,7 +62,8 @@
 			<input type="number" class="form-control" id="balance" name='balance' value="0" step="0.01">
 		</div>
 		<button type="submit" class="btn btn-default btn-primary">
-			{{#if isNew}}Create account{{else}}Edit account{{/if}}
+			{{#if isNew}}Create account{{else}}Apply changes{{/if}}
 		</button>
+		<button type="button" id='delete' class="btn btn-danger pull-right">Delete account</button>
 	</form>
 </template>

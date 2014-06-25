@@ -43,7 +43,6 @@ Template.accountSummary.helpers({
 });
 
 UI.registerHelper('selectedOption', function (value, selectedValue) {
-	console.log("Selected option", value, selectedValue);
 	return value == selectedValue ? {selected: "selected"} : "";
 });
 
@@ -65,14 +64,23 @@ Template.accountEdit.events({
 			viewers: [user._id]
 		};
 		if (this._id) {
-			//console.log("updating", this._id);
 			Accounts.update({_id: this._id}, {$set: account}, {upsert: true});
 			account._id = this._id;
 		}
 		else {
 			account._id = Accounts.insert(account);
 		}
-		console.log(account._id);
 		Router.go('accountDetail', {uid: account._id._str || account._id});
+	},
+	'click #delete': function (e) {
+		var account = this;
+		$('#confirmYesOrNo').modal()
+			.one('click', '#delete-confirm', function (e) {
+				// deleting, close the modal and then delete the account and redirect to home
+				$('#confirmYesOrNo').modal('hide').on('hidden.bs.modal', function(){
+					Accounts.remove(account._id);
+					Router.go('accountBalances');
+				});
+			});
 	}
 });

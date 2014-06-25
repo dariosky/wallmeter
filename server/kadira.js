@@ -1,1 +1,5 @@
-Kadira.connect('fqdd6NhdtBckkMSjW', '4e6067ef-3fad-4aaa-8f34-b44b5127b935');
+Meteor.startup(function () {
+	//var app_id = process.env.KADIRA_APP_ID;
+	//var app_secret = process.env.KADIRA_APP_SECRET;
+	//Kadira.connect();
+});

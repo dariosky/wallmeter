@@ -25,10 +25,17 @@
 </template>
 
 <template name="accountDetail">
+	<ol class="breadcrumb">
+		<li><a href="{{ pathFor 'accountBalances' }}">Accounts</a></li>
+		<li>{{name}}</li>
+	</ol>
 	<h3>
-		<a href="{{ pathFor 'accountBalances' }}">
-			<span class="glyphicon glyphicon-chevron-left"></span>{{name}}
-		</a></h3>
+		<!--<a href="{{ pathFor 'accountBalances' }}">-->
+			<!--<span class="glyphicon glyphicon-chevron-left"></span>-->
+		<!--</a>-->
+		{{name}}
+	</h3>
+
 	<a class="pull-right" href="{{ pathFor 'editAccount' uid=uid }}"><span class="glyphicon glyphicon-edit">modify account</span></a>
 
 	<table class="table table-hover">

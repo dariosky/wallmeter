@@ -1,16 +1,22 @@
 <template name="accountEdit">
+	<ol class="breadcrumb">
+		<li><a href="{{ pathFor 'accountBalances' }}">Accounts</a></li>
+		<li><a href="{{ pathFor 'accountDetail' uid=uid }}">{{name}}</a></li>
+		<li class="active">Modify</li>
+	</ol>
+
 	{{#if isNew }}
-	<h1>Let's do a new account</h1>
+		<h1>Let's do a new account</h1>
 
-	<p>An account is a place where you put your money, like a bank account or simply a wallet.</p>
+		<p>An account is a place where you put your money, like a bank account or simply a wallet.</p>
 
-	<p>
-		An account could also be a place for debts, like a credit card (who accumulate debts and periodically
-		receive transfers from your bank account) or lends (that are money that you give away, but you hope
-		they'll be back sooner or later).
-	</p>
+		<p>
+			An account could also be a place for debts, like a credit card (who accumulate debts and periodically
+			receive transfers from your bank account) or lends (that are money that you give away, but you hope
+			they'll be back sooner or later).
+		</p>
 	{{ else }}
-	<h1><a href="{{ pathFor 'accountDetail' }}"></a>{{ name }}</h1>
+		<h1>{{ name }}</h1>
 	{{/if}}
 
 	<div id="confirmYesOrNo" class="modal fade" tabindex="-1"

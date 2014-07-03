@@ -46,6 +46,12 @@ UI.registerHelper('selectedOption', function (value, selectedValue) {
 	return value == selectedValue ? {selected: "selected"} : "";
 });
 
+Template.accountEdit.helpers({
+	uid: function () {
+		return this._id._str || this._id;
+	}
+});
+
 UI.registerHelper('isNew', function () {
 	return !this._id
 });
@@ -77,7 +83,7 @@ Template.accountEdit.events({
 		$('#confirmYesOrNo').modal()
 			.one('click', '#delete-confirm', function (e) {
 				// deleting, close the modal and then delete the account and redirect to home
-				$('#confirmYesOrNo').modal('hide').on('hidden.bs.modal', function(){
+				$('#confirmYesOrNo').modal('hide').on('hidden.bs.modal', function () {
 					Accounts.remove(account._id);
 					Router.go('accountBalances');
 				});

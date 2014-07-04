@@ -19,14 +19,17 @@ Wall meter helps you to
 * update dependencies with meteorite:
   `mrt install`
 * Setup DB connection and mail server (to send mail for registration)
-  Set your environment variables (in ~/.bash_profile) (here with mongolab and mandrill)
+  Set your environment variables (in ~/.bash_profile)
+  (here with mongolab for mongodb hosting and mandrill as email server and kadira for reporting)
 
 ```
 #!bash
 
   export MONGO_URL=mongodb://user:pass@host.mongolab.com:45017/dbname
   export MAIL_URL=smtp://user%40email.com:pass@smtp.mandrillapp.com:587/
-
+  export KADIRA_APP_ID=<yourAppId>
+  export KADIRA_APP_SECRET=<yourAppSecret>
+  
 ```
 *  Run (on port 3000) with
   `meteor`

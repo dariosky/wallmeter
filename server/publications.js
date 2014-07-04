@@ -1,3 +1,6 @@
-Meteor.publish('accounts', function(){
-	return Accounts.find();
+Meteor.publish('accounts', function () {
+	if (this.userId) {
+		return Accounts.find();
+	}
+	return [];
 });

@@ -28,7 +28,15 @@ Schemas.CommonTrackedObject = new SimpleSchema({
 });
 
 Schemas.OwnedObject = new SimpleSchema({
-	owners: {
+	/*
+		an object has an owner (who can do everything)
+		a list of viewer with readonly access
+		a list of editor who can write too
+	*/
+	owner: {
+		type: String,
+	},
+	editors: {
 		type: [String],
 		min: 1
 	},
@@ -87,3 +95,10 @@ Schemas.Alert = new SimpleSchema([Schemas.OwnedObject, {
 Accounts = new Meteor.Collection('accounts', {idGeneration: 'MONGO'});
 //Accounts.attachSchema(Schemas.Account);
 
+// TODO: Change to a better security (with Methods)
+Accounts.allow({
+	insert: function(userId, doc) {
+		// only allow posting if you are logged in
+		return !! userId;
+	}
+});

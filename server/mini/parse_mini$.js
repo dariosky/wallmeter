@@ -143,17 +143,21 @@ function parseMiniFile(filename) {
 	); // end of on_line
 }
 
+require = typeof(Meteor) != 'undefined' ? Meteor.require : require;
+//	Use NPM packages ising arunoda meteor-npm if in Meteor, Node require otherwise
+var fs = require('fs'),
+	iconv = require('iconv-lite'),
+	assert = require('assert'),
+	readline = require('readline'),
+	_ = require('underscore'),
+	moment = require('moment'),
+	path = require('path');
 
-if (typeof(Meteor) != 'undefined' && Meteor.isServer) {
-	//	Use NPM packages ising arunoda meteor-npm
-	var fs = Meteor.require('fs'),
-		iconv = Meteor.require('iconv-lite'),
-		assert = Meteor.require('assert'),
-		readline = Meteor.require('readline'),
-		_ = Meteor.require('underscore'),
-		moment = Meteor.require('moment');
-	var path = Meteor.require('path');
-	var base = path.resolve(process.env.PWD);
-	var minifile = path.resolve(base, "server/mini/mini$tests/simple");
+console.log(process.env.PWD);
+var BASE_PATH = path.resolve(process.env.PWD || process.cwd());
+var minifile = typeof(Meteor) != 'undefined' ?
+	path.resolve(BASE_PATH, "server/mini/mini$tests/simple") :
+	path.resolve(BASE_PATH, "mini$tests/simple");
+console.log(minifile);
+console.log(fs.existsSync(minifile) ? "Exists!" : "Doesn't exists :-(");
 //	parseMiniFile(minifile);
-}

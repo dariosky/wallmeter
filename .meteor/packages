@@ -15,3 +15,8 @@ accounting
 accounts-password
 accounts-ui-bootstrap-3
 collection2
+moment
+underscore
+iconv-lite
+assert
+npm

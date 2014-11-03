@@ -143,7 +143,7 @@ function parseMiniFile(filename) {
 	); // end of on_line
 }
 
-require = typeof(Meteor) != 'undefined' ? Meteor.require : require;
+require = typeof(Meteor) != 'undefined' ? Meteor.npmRequire : require;
 //	Use NPM packages ising arunoda meteor-npm if in Meteor, Node require otherwise
 var fs = require('fs'),
 	iconv = require('iconv-lite'),

@@ -8,7 +8,7 @@ Schemas.CommonTrackedObject = new SimpleSchema({
 				return new Date;
 			} else if (this.isUpsert) {
 				console.log("upsert");
-				return {$setOnInsert: new Date};
+				return {$setOnInsert: new Date()};
 			} else {
 				// update
 				this.unset();
@@ -19,7 +19,7 @@ Schemas.CommonTrackedObject = new SimpleSchema({
 		type: Date,
 		autoValue: function () {
 			if (this.isUpdate) {
-				return new Date;
+				return new Date();
 			}
 		},
 		denyInsert: true,

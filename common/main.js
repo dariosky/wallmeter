@@ -19,6 +19,8 @@ if (Meteor.isServer) {
 }
 
 
+/*
+//TODO:
 accounting.settings = {
 	currency: {
 		symbol: "€",
@@ -32,4 +34,4 @@ accounting.settings = {
 		thousand: ",",
 		decimal : "."
 	}
-};
+};*/

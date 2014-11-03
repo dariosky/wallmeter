@@ -4,18 +4,17 @@
 # but you can also edit it by hand.
 
 standard-app-packages
-audit-argument-checks
-less
-less-bootstrap-3
-font-awesome-4-less
-iron-router
-spin
-accounting
+iron:router
+meteorhacks:npm
+meteorhacks:kadira
+
+
+npm-container
+aldeed:simple-schema
+aldeed:autoform
 accounts-password
-accounts-ui-bootstrap-3
-collection2
-moment
-underscore
-iconv-lite
-assert
-npm
+sacha:spin
+aldeed:collection2
+less
+mrt:accounts-ui-bootstrap-3
+

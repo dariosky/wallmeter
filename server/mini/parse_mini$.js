@@ -144,13 +144,13 @@ function parseMiniFile(filename) {
 }
 
 require = typeof(Meteor) != 'undefined' ? Meteor.npmRequire : require;
-//	Use NPM packages ising arunoda meteor-npm if in Meteor, Node require otherwise
+//	Use NPM packages with arunoda meteor-npm if in Meteor, Node require otherwise
 var fs = require('fs'),
 	iconv = require('iconv-lite'),
 	assert = require('assert'),
 	readline = require('readline'),
 	_ = require('underscore'),
-	moment = require('moment'),
+	//moment = require('moment'),
 	path = require('path');
 
 console.log(process.env.PWD);
@@ -160,4 +160,4 @@ var minifile = typeof(Meteor) != 'undefined' ?
 	path.resolve(BASE_PATH, "mini$tests/simple");
 console.log(minifile);
 console.log(fs.existsSync(minifile) ? "Exists!" : "Doesn't exists :-(");
-//	parseMiniFile(minifile);
+parseMiniFile(minifile);

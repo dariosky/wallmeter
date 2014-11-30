@@ -4,17 +4,25 @@
 # but you can also edit it by hand.
 
 standard-app-packages
+
+less
+
 iron:router
-meteorhacks:npm
 meteorhacks:kadira
+
+sacha:spin
+
+accounts-password
+mizzao:bootstrap-3
+mrt:accounts-ui-bootstrap-3
+
+
+aldeed:simple-schema
+aldeed:autoform
+aldeed:collection2
+
+mrt:moment
+meteorhacks:npm
 
 
 npm-container
-aldeed:simple-schema
-aldeed:autoform
-accounts-password
-sacha:spin
-aldeed:collection2
-less
-mrt:accounts-ui-bootstrap-3
-

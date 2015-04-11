@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # node.js
-apt-get install -y npm curl
+apt-get install -y npm curl git
 npm cache clean -f
 npm install -g n
 n stable

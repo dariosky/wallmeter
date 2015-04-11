@@ -22,7 +22,8 @@ aldeed:autoform
 aldeed:collection2
 
 mrt:moment
+
+
+mrt:iconv-lite
 meteorhacks:npm
 
-
-npm-container

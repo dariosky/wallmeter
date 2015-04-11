@@ -7,7 +7,7 @@ Template.accountBalances.helpers({
 		_.each(Accounts.find().fetch(), function (a) {
 			sum += parseFloat(a.balance)
 		});
-		return sum;
+		return sum || 0;
 //		return accounting.formatMoney(sum);	// TODO:
 	}
 });
@@ -36,7 +36,7 @@ Template.accountSummary.helpers({
 		return this.currency || '€';
 	},
 	formatBalance: function () {
-		return this.balance;
+		return this.balance || 0;
 //		return accounting.formatMoney(this.balance);	// TODO:
 	},
 	uid: function () {

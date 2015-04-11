@@ -1,6 +1,6 @@
 # WALL-METER #
 
-Wall-meter is a personal financial manager with solid features and great potential :-)
+Wall-meter is a personal finance manager with solid features and great potential :-)
 
 ### What is this for? ###
 

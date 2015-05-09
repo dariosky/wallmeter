@@ -143,6 +143,7 @@ function parseMiniFile(filename) {
     ); // end of on_line
 }
 
+/*
 var require = typeof(Meteor) != 'undefined' ? Meteor.npmRequire : require;
 //	Use NPM packages with arunoda meteor-npm if in Meteor, Node require otherwise
 var fs = require('fs'),
@@ -161,3 +162,4 @@ var minifile = typeof(Meteor) != 'undefined' ?
 console.log(minifile);
 console.log(fs.existsSync(minifile) ? "Exists!" : "Doesn't exists :-(");
 parseMiniFile(minifile);
+*/

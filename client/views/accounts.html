@@ -1,17 +1,22 @@
 <template name="accountBalances">
-	<h3>Balances</h3>
-	<table class="table table-striped table-bordered table-hover">
-		<tbody>
-		{{#each accounts}}
-		{{> accountSummary }}
-		{{/each}}
-		<tr class="total">
-			<td>TOTAL</td>
-			<td>{{ total }}</td>
-		</tr>
-		</tbody>
-	</table>
-
+	{{#with accounts}}
+		{{#if count}}
+			<h3>Balances</h3>
+			<table class="table table-striped table-bordered table-hover">
+				<tbody>
+				{{#each this}}
+					{{> accountSummary }}
+				{{/each}}
+				<tr class="total">
+					<td>TOTAL</td>
+					<td>{{ total }}</td>
+				</tr>
+				</tbody>
+			</table>
+		{{else}}
+			{{>noAccounts}}
+		{{/if}}
+	{{/with}}
 	<a href="{{ pathFor 'newAccount' }}">
 		<span class='glyphicon glyphicon-plus'></span> New account
 	</a><br/>
@@ -20,6 +25,17 @@
 	</a>
 </template>
 
+<template name="noAccounts">
+	<h3>Create your accounts</h3>
+
+	<p>
+		You still don't have any accounts. Accounts are the container for the money, so the first thing to do is create
+		some of them.
+	</p>
+
+	<p>You can create them one by one, or if you come from other personal-finance program, you can import your previous
+		files.</p>
+</template>
 <template name="accountSummary">
 	<tr class="accountrow" data-uid="{{ uid }}">
 		<td>{{ name }}</td>
@@ -34,7 +50,7 @@
 	</ol>
 	<h3>
 		<!--<a href="{{ pathFor 'accountBalances' }}">-->
-			<!--<span class="glyphicon glyphicon-chevron-left"></span>-->
+		<!--<span class="glyphicon glyphicon-chevron-left"></span>-->
 		<!--</a>-->
 		{{name}}
 	</h3>

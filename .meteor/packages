@@ -5,25 +5,17 @@
 
 standard-app-packages
 
-less
+accounts-password
 
+less
 iron:router
 meteorhacks:kadira
-
 sacha:spin
-
-accounts-password
-mizzao:bootstrap-3
-mrt:accounts-ui-bootstrap-3
-
 
 aldeed:simple-schema
 aldeed:autoform
 aldeed:collection2
 
 mrt:moment
-
-
-mrt:iconv-lite
-meteorhacks:npm
-
+ian:accounts-ui-bootstrap-3
+twbs:bootstrap

@@ -1,10 +1,11 @@
 Meteor.publish('accounts', function () {
-	if (this.userId) {
+    var userId = this.userId;
+	if (userId) {
 		return Accounts.find(
 			{$or: [
-				{viewers: this.userId},
-				{editors: this.userId},
-				{owner: this.userId}
+				{viewers: userId},
+				{editors: userId},
+				{owner: userId}
 			]}
 		);
 	}
